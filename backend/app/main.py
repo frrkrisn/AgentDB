@@ -5,6 +5,7 @@ from sqlalchemy import text
 from app.core.config import settings
 from app.db.session import get_db
 from app.api.auth import router as auth_router
+from app.api.agents import router as agents_router
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -24,6 +25,7 @@ if settings.BACKEND_CORS_ORIGINS:
 
 # Mount routers
 app.include_router(auth_router)
+app.include_router(agents_router)
 
 
 @app.get("/health", tags=["System"])
