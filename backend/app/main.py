@@ -8,6 +8,7 @@ from app.api.auth import router as auth_router
 from app.api.agents import router as agents_router
 from app.api.tasks import router as tasks_router
 from app.api.runs import router as runs_router
+from app.api.events import router as events_router
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -30,6 +31,7 @@ app.include_router(auth_router)
 app.include_router(agents_router)
 app.include_router(tasks_router)
 app.include_router(runs_router)
+app.include_router(events_router)
 
 
 @app.get("/health", tags=["System"])
